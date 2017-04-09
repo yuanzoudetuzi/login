@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>MAP</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="index.css">
+
+</head>
+<!-- -->
+<body>
+<div class="row">
+    <form  name="loginForm"  action="login.html" method="post" onsubmit="return validateForm(this)" id="log_in">
+          <div class="form-group">
+              <div class="row row_margin">
+                  <lable for="username">
+                      用户名：
+                  </lable>
+              </div>
+              <div class="row row_margin" id="username">
+                  <input name="username" type="text" class="form-control" placeholder="username">
+              </div>
+              <div class="row row_margin">
+                  <lable for="password">
+                      密码：
+                  </lable>
+              </div>
+              <div class="row row_margin" id="password">
+                  <input name="password" type="password" class="form-control" placeholder="password">
+              </div>
+              <input type='hidden' id="m_password" name='m_password'/>
+              <div class="btn_pos row row_margin">
+                  <button  type="submit" value="submit" class="btn btn_color">
+                      <i class="fa fa-paper-plane" aria-hidden="true"></i>log In</button>
+              </div>
+          </div>
+    </form>
+</div>
+</body>
+<!--<script src="http://code.jquery.com/jquery.js"></script>-->
+<script type="text/javascript" src="md5.js"></script>
+<script src="log.js"></script>
+</html>
