@@ -45,15 +45,22 @@ var validateInformation = function (field,alertTxt) {
 
         if ( value == null || value=="" )
         {
-            alert(alertTxt + " must be filled out!");
+            //alert(alertTxt + " must be filled out!");
+            setElementStatus("alert_box","block");
+            $('#alert_text').html(alertTxt + " must be filled out!");
             return false;
         }
         if( alertTxt == "Username" && checkPhone(field) == false ) {
-            alert(alertTxt + " format is wrong, it must be your phone number.");
+            setElementStatus("alert_box","block");
+            $('#alert_text').html(alertTxt + " format is wrong, it must be your phone number.");
+            //alert(alertTxt + " format is wrong, it must be your phone number.");
             return false;
         } else if( alertTxt == "Password" && checkPassword(field) == false ) {
-            alert(alertTxt + " format is wrong." +
-                " length must be 6 to 20,and must be letter,number,dot,underline.");
+           /* alert(alertTxt + " format is wrong." +
+                " length must be 6 to 20,and must be letter,number,dot,underline.");*/
+            setElementStatus("alert_box","block");
+            $('#alert_text').html(alertTxt + " format is wrong, " +
+                "length must be 6 to 20,and must be letter,number,dot,underline.");
             return false;
         }
         return true;
@@ -68,12 +75,15 @@ var validateForm = function (form) {
         if ( validateInformation(username,"Username") == false )
         {
             username.focus();
+            username.select();
             return false;
 
         } else if ( validateInformation(password,"Password") == false ) {
             password.focus();
+            password.select();
             return false;
         } else {
+            setElementStatus("alert_box","none");
             var m_pwd = document.getElementById('m_password');
             m_pwd.value = encryption(password);
             console.log("m_pwd.value :");
@@ -93,4 +103,9 @@ var validateForm = function (form) {
 
 var encryption = function (data) {
     return hex_md5(data);
+};
+
+var setElementStatus = function (id,state) {
+    console.log("state" + state);
+    document.getElementById(id).style.display = state;
 };
